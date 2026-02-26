@@ -6,28 +6,26 @@
 <title>Premium Products | BALAJI UPVC WINDOW AND DOORS</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
 body{
-    background:#f4f9ff;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(to right,#e3f2fd,#ffffff);
 }
 
-/* HEADER */
 header{
-    background:linear-gradient(90deg,#0a3d62,#0077b6);
+    background:#0a3d62;
     color:white;
-    padding:15px 40px;
+    padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 header h1{
+    margin:0;
     font-size:20px;
 }
 
@@ -35,118 +33,100 @@ nav a{
     color:white;
     text-decoration:none;
     margin-left:20px;
+    font-weight:bold;
 }
 
-nav a:hover{
-    text-decoration:underline;
-}
-
-/* SECTION */
 .section{
-    padding:60px 40px;
+    padding:60px 20px;
     text-align:center;
 }
 
 .section h2{
     font-size:32px;
-    margin-bottom:40px;
     color:#0a3d62;
+    margin-bottom:40px;
 }
 
-/* PRODUCT GRID */
-.products{
+.products-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+    gap:30px;
+    max-width:1200px;
+    margin:auto;
 }
 
-.card{
+.product-card{
     background:white;
     border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    padding:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
     transition:0.4s;
     position:relative;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.product-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 12px 35px rgba(0,0,0,0.2);
 }
 
-.card img{
+.product-card img{
     width:100%;
-    border-radius:10px;
+    height:220px;
+    object-fit:cover;
 }
 
-.badge{
+.discount{
     position:absolute;
-    top:15px;
-    left:15px;
-    background:red;
+    top:10px;
+    left:10px;
+    background:#e84118;
     color:white;
     padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
+    font-size:14px;
+    border-radius:5px;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin:0 0 10px;
+    color:#0a3d62;
 }
 
 .price{
-    color:#0077b6;
     font-weight:bold;
-    margin:10px 0;
+    color:#27ae60;
+    margin-bottom:10px;
 }
 
-select{
-    padding:8px;
-    margin-top:10px;
-    width:100%;
-    border-radius:6px;
+.product-info p{
+    font-size:14px;
+    color:#555;
 }
 
 .order-btn{
-    background:#0077b6;
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#0a3d62;
     color:white;
-    padding:10px;
-    border:none;
-    border-radius:20px;
-    margin-top:10px;
-    cursor:pointer;
-    width:100%;
+    text-decoration:none;
+    border-radius:25px;
     transition:0.3s;
 }
 
 .order-btn:hover{
-    background:#00b4d8;
+    background:#00a8ff;
 }
 
-/* FLOATING CALL */
-.floating-call{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px;
-    height:60px;
-    background:#0077b6;
+footer{
+    background:#0a3d62;
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    font-size:26px;
-    text-decoration:none;
-    box-shadow:0 6px 15px rgba(0,0,0,0.3);
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(0,119,182,0.7);}
-    70%{box-shadow:0 0 0 15px rgba(0,119,182,0);}
-    100%{box-shadow:0 0 0 0 rgba(0,119,182,0);}
-}
-
-@media(max-width:768px){
-    header{
-        flex-direction:column;
-    }
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
 }
 </style>
 </head>
@@ -154,93 +134,73 @@ select{
 <body>
 
 <header>
-<h1>BALAJI UPVC WINDOW AND DOORS</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="#">Contact</a>
-</nav>
+    <h1>BALAJI UPVC WINDOW AND DOORS</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
 <section class="section">
-<h2>Our Premium UPVC Collection</h2>
+    <h2>Our Premium UPVC Products</h2>
 
-<div class="products">
+    <div class="products-grid">
 
-<!-- Sliding Window -->
-<div class="card">
-<span class="badge">10% OFF</span>
-<img src="https://via.placeholder.com/300x200">
-<h3>Sliding Window</h3>
-<p class="price">Starting ₹350/sqft</p>
-<p>Modern smooth sliding window with strong frame.</p>
-<select>
-<option>Select Size</option>
-<option>4 x 4 ft</option>
-<option>5 x 4 ft</option>
-<option>6 x 4 ft</option>
-</select>
-<button class="order-btn" onclick="order()">Order Now</button>
-</div>
+        <!-- Sliding Window -->
+        <div class="product-card">
+            <span class="discount">10% OFF</span>
+            <img src="https://source.unsplash.com/600x400/?sliding-window,modern-home" alt="Sliding Window">
+            <div class="product-info">
+                <h3>Sliding Window</h3>
+                <div class="price">Starting ₹4999</div>
+                <p>Modern design, smooth sliding system, energy efficient.</p>
+                <a href="https://forms.gle/" target="_blank" class="order-btn">Order Now</a>
+            </div>
+        </div>
 
-<!-- Casement Window -->
-<div class="card">
-<span class="badge">12% OFF</span>
-<img src="https://via.placeholder.com/300x200">
-<h3>Casement Window</h3>
-<p class="price">Starting ₹400/sqft</p>
-<p>Elegant openable window with premium lock system.</p>
-<select>
-<option>Select Size</option>
-<option>4 x 4 ft</option>
-<option>5 x 4 ft</option>
-<option>6 x 4 ft</option>
-</select>
-<button class="order-btn" onclick="order()">Order Now</button>
-</div>
+        <!-- Casement Window -->
+        <div class="product-card">
+            <span class="discount">15% OFF</span>
+            <img src="https://source.unsplash.com/600x400/?casement-window,house" alt="Casement Window">
+            <div class="product-info">
+                <h3>Casement Window</h3>
+                <div class="price">Starting ₹5499</div>
+                <p>Excellent ventilation, strong locking system.</p>
+                <a href="https://forms.gle/" target="_blank" class="order-btn">Order Now</a>
+            </div>
+        </div>
 
-<!-- Sliding Door -->
-<div class="card">
-<span class="badge">15% OFF</span>
-<img src="https://via.placeholder.com/300x200">
-<h3>Sliding Door</h3>
-<p class="price">Starting ₹550/sqft</p>
-<p>Premium sliding door for modern homes.</p>
-<select>
-<option>Select Size</option>
-<option>6 x 7 ft</option>
-<option>7 x 7 ft</option>
-<option>8 x 7 ft</option>
-</select>
-<button class="order-btn" onclick="order()">Order Now</button>
-</div>
+        <!-- Sliding Door -->
+        <div class="product-card">
+            <span class="discount">12% OFF</span>
+            <img src="https://source.unsplash.com/600x400/?sliding-door,modern-interior" alt="Sliding Door">
+            <div class="product-info">
+                <h3>Sliding Door</h3>
+                <div class="price">Starting ₹8999</div>
+                <p>Premium finish, space saving, stylish look.</p>
+                <a href="https://forms.gle/" target="_blank" class="order-btn">Order Now</a>
+            </div>
+        </div>
 
-<!-- Designer Door -->
-<div class="card">
-<span class="badge">18% OFF</span>
-<img src="https://via.placeholder.com/300x200">
-<h3>Designer UPVC Door</h3>
-<p class="price">Starting ₹700/sqft</p>
-<p>Luxury designer door with premium finish.</p>
-<select>
-<option>Select Size</option>
-<option>7 x 3 ft</option>
-<option>7 x 4 ft</option>
-<option>8 x 4 ft</option>
-</select>
-<button class="order-btn" onclick="order()">Order Now</button>
-</div>
+        <!-- Designer Door -->
+        <div class="product-card">
+            <span class="discount">20% OFF</span>
+            <img src="https://source.unsplash.com/600x400/?upvc-door,home-door" alt="Designer UPVC Door">
+            <div class="product-info">
+                <h3>Designer UPVC Door</h3>
+                <div class="price">Starting ₹10999</div>
+                <p>Elegant designs with high durability & security.</p>
+                <a href="https://forms.gle/" target="_blank" class="order-btn">Order Now</a>
+            </div>
+        </div>
 
-</div>
+    </div>
 </section>
 
-<a href="tel:9588217772" class="floating-call">📞</a>
-
-<script>
-function order(){
-window.open("https://forms.gle/your-google-form-link","_blank");
-}
-</script>
+<footer>
+    © 2026 BALAJI UPVC WINDOW AND DOORS | balajiupvc.github.io
+</footer>
 
 </body>
 </html>
