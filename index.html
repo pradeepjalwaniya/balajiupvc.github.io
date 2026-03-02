@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Balaji UPVC Windows & Doors</title>
 
-<meta name="description" content="Premium UPVC Windows & Doors in Kishangarh. Modern, stylish and durable solutions.">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -23,7 +21,6 @@ html{
 
 body{
   background:linear-gradient(135deg,#ff6600,#ff944d);
-  color:#333;
 }
 
 /* NAVBAR */
@@ -31,27 +28,22 @@ header{
   position:fixed;
   width:100%;
   top:0;
-  left:0;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.7);
+  padding:15px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 40px;
   z-index:1000;
-  animation:slideDown 1s ease;
 }
 
 header h1{
   color:#fff;
-  font-size:20px;
 }
 
 nav a{
   color:#fff;
-  text-decoration:none;
   margin-left:20px;
-  font-weight:500;
+  text-decoration:none;
   transition:0.3s;
 }
 
@@ -63,36 +55,15 @@ nav a:hover{
 .hero{
   height:100vh;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
+  flex-direction:column;
   color:#fff;
+  text-align:center;
   padding:20px;
-  animation:fadeIn 2s ease;
 }
 
-.hero h2{
-  font-size:40px;
-  margin-bottom:20px;
-}
-
-.hero button{
-  padding:12px 25px;
-  border:none;
-  background:#fff;
-  color:#ff6600;
-  font-weight:600;
-  border-radius:30px;
-  cursor:pointer;
-  transition:0.4s;
-}
-
-.hero button:hover{
-  transform:scale(1.1);
-}
-
-/* PRODUCTS */
+/* SECTION */
 .section{
   padding:80px 20px;
   background:#fff;
@@ -106,17 +77,21 @@ nav a:hover{
   margin-top:40px;
 }
 
+/* CARD INITIAL STATE */
 .card{
-  background:rgba(255,255,255,0.8);
+  background:#fff;
   border-radius:20px;
   padding:20px;
   box-shadow:0 10px 25px rgba(0,0,0,0.15);
-  transition:0.4s;
-  animation:fadeUp 1.5s ease;
+  transform:translateY(60px);
+  opacity:0;
+  transition:all 0.8s ease;
 }
 
-.card:hover{
-  transform:translateY(-10px) scale(1.03);
+/* CARD WHEN VISIBLE */
+.card.show{
+  transform:translateY(0);
+  opacity:1;
 }
 
 .card img{
@@ -126,32 +101,23 @@ nav a:hover{
   border-radius:15px;
 }
 
-.card h3{
-  margin:15px 0;
-}
-
 .card button{
+  margin-top:15px;
   padding:10px;
   border:none;
   background:#ff6600;
   color:#fff;
   border-radius:20px;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.card button:hover{
-  background:#ff944d;
 }
 
 /* CONTACT */
 .contact{
   max-width:500px;
   margin:40px auto;
-  background:#f9f9f9;
   padding:30px;
+  background:#f9f9f9;
   border-radius:20px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
 
 input, textarea{
@@ -162,59 +128,12 @@ input, textarea{
   border:1px solid #ccc;
 }
 
-.contact button{
-  width:100%;
-  padding:10px;
-  border:none;
-  background:#ff6600;
-  color:#fff;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* FLOATING WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:15px 18px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
-  animation:pulse 2s infinite;
-}
-
 /* FOOTER */
 footer{
   background:#111;
   color:#fff;
   text-align:center;
   padding:15px;
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes slideDown{
-  from{transform:translateY(-100%);}
-  to{transform:translateY(0);}
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.1);}
-  100%{transform:scale(1);}
 }
 </style>
 </head>
@@ -232,7 +151,6 @@ footer{
 
 <section class="hero" id="home">
 <h2>Modern UPVC Windows & Doors</h2>
-<button onclick="document.getElementById('products').scrollIntoView()">Explore Products</button>
 </section>
 
 <section class="section" id="products">
@@ -240,20 +158,20 @@ footer{
 
 <div class="products">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1588854337115-1c67d9247e4d" alt="">
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1588854337115-1c67d9247e4d">
 <h3>Sliding Window</h3>
 <button onclick="orderNow('Sliding Window')">Order Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1599423300746-b62533397364" alt="">
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1599423300746-b62533397364">
 <h3>Casement Window</h3>
 <button onclick="orderNow('Casement Window')">Order Now</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4" alt="">
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
 <h3>UPVC Door</h3>
 <button onclick="orderNow('UPVC Door')">Order Now</button>
 </div>
@@ -271,10 +189,8 @@ footer{
 </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/919982100135" target="_blank">💬</a>
-
 <footer>
-© 2026 Balaji UPVC Windows & Doors | Kishangarh
+© 2026 Balaji UPVC Windows & Doors
 </footer>
 
 <script>
@@ -283,6 +199,21 @@ function orderNow(product){
   var message="Hello, I want to order "+product+" from Balaji UPVC.";
   window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message));
 }
+
+/* SCROLL REVEAL */
+const cards = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{ threshold: 0.2 });
+
+cards.forEach(card => {
+  observer.observe(card);
+});
 </script>
 
 </body>
