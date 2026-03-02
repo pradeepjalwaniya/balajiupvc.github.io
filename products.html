@@ -3,203 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Products | Balaji UPVC Window and Doors</title>
+
+<!-- SEO -->
+<meta name="description" content="Balaji UPVC Windows and Doors - Premium Quality Sliding & Casement Windows at Affordable Prices.">
+<meta name="keywords" content="UPVC windows, UPVC doors, Sliding windows, Casement windows, Kishangarh UPVC">
+<meta name="author" content="Balaji UPVC">
+
+<title>BALAJI UPVC WINDOW AND DOORS</title>
 
 <style>
 
-body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to right, #0f2b5b, #1e4c9a);
-    color:white;
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#f4f9ff;transition:.4s;}
+.dark{background:#121212;color:white;}
+
+header{
+position:sticky;top:0;
+background:linear-gradient(90deg,#0a3d62,#0077b6);
+color:white;padding:15px 30px;
+display:flex;justify-content:space-between;align-items:center;
+z-index:1000;
 }
 
-/* Section Title */
-.section-title{
-    text-align:center;
-    padding:40px 20px 10px;
-    font-size:38px;
-    font-weight:bold;
-    letter-spacing:2px;
+nav a{
+color:white;text-decoration:none;margin:0 10px;
 }
 
-/* Product Container */
+.toggle{background:white;border:none;padding:5px 10px;border-radius:20px;cursor:pointer;}
+
+.hero{
+height:90vh;
+display:flex;justify-content:center;align-items:center;
+text-align:center;color:white;
+background-size:cover;background-position:center;
+transition:1s;
+}
+
+.hero-box{
+background:rgba(0,0,0,.5);
+padding:30px;border-radius:15px;
+}
+
+.section{padding:60px 30px;text-align:center;}
+
 .products{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap:25px;
-    padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-/* Product Card */
-.product-card{
-    background:white;
-    color:#333;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    transition:0.4s;
+.card{
+background:white;padding:20px;border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
 }
 
-.product-card:hover{
-    transform:translateY(-8px);
+.card:hover{transform:translateY(-8px);}
+.card img{width:100%;border-radius:10px;}
+
+input[type=number]{width:60px;padding:5px;margin:10px;}
+
+button{
+padding:10px 20px;border:none;border-radius:20px;
+cursor:pointer;margin:5px;
 }
 
-/* Product Image */
-.product-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+.primary{background:#0077b6;color:white;}
+.secondary{background:#00d4ff;color:#003049;}
+
+.cart{
+position:fixed;top:20px;right:20px;
+background:#ff9800;color:white;
+padding:8px 15px;border-radius:20px;
 }
 
-/* Product Content */
-.product-content{
-    padding:20px;
+.modal{
+display:none;position:fixed;top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.6);
+justify-content:center;align-items:center;
 }
 
-.product-content h3{
-    margin-top:0;
-    color:#0f2b5b;
+.modal-box{
+background:white;padding:25px;border-radius:15px;
+width:90%;max-width:400px;
 }
 
-.product-content p{
-    font-size:14px;
-    line-height:1.6;
+.floating-call,.whatsapp{
+position:fixed;right:20px;width:60px;height:60px;
+display:flex;justify-content:center;align-items:center;
+border-radius:50%;color:white;text-decoration:none;
+}
+.floating-call{bottom:20px;background:#0077b6;}
+.whatsapp{bottom:90px;background:#25D366;}
+
+footer{
+background:#0a3d62;color:white;text-align:center;
+padding:20px;margin-top:40px;
 }
 
-/* Button */
-.btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 18px;
-    background:#ffb400;
-    color:#000;
-    font-weight:bold;
-    border-radius:25px;
-    text-decoration:none;
-    transition:0.3s;
+.loader{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:white;display:flex;justify-content:center;align-items:center;
+z-index:2000;
 }
 
-.btn:hover{
-    background:#ffa000;
-}
-
-/* Call To Action */
-.cta{
-    background:#ffb400;
-    color:#000;
-    text-align:center;
-    padding:30px 20px;
-}
-
-.cta h2{
-    margin:0;
-    font-size:28px;
-}
-
-.cta p{
-    margin:10px 0;
-    font-weight:bold;
-}
-
-.whatsapp{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 20px;
-    background:#25D366;
-    color:white;
-    border-radius:25px;
-    text-decoration:none;
-    font-weight:bold;
+@media(max-width:768px){
+header{flex-direction:column;}
 }
 
 </style>
 </head>
+
 <body>
 
-<h1 class="section-title">OUR PRODUCTS</h1>
+<div class="loader" id="loader">Loading...</div>
+
+<header>
+<h3>BALAJI UPVC</h3>
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+<button class="toggle" onclick="toggleDark()">🌙</button>
+</nav>
+</header>
+
+<div class="cart" id="cartCount">Cart: 0</div>
+
+<section class="hero" id="home">
+<div class="hero-box">
+<h1>Premium UPVC Windows & Doors</h1>
+<p>Strong | Stylish | Durable | Energy Efficient</p>
+<button class="primary" onclick="openModal()">Order Now</button>
+</div>
+</section>
+
+<section class="section" id="products">
+<h2>Our Products</h2>
 
 <div class="products">
 
-    <!-- 1 -->
-    <div class="product-card">
-        <img src="images/series.jpg" alt="Series Categories">
-        <div class="product-content">
-            <h3>Series Categories</h3>
-            <p>Different profile series options available for residential and commercial needs.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
+<div class="card">
+<img src="https://via.placeholder.com/300x200" alt="Sliding Window">
+<h3>Sliding Window</h3>
+<p>₹350/sqft</p>
+Qty <input type="number" value="1" min="1" id="q1">
+<button class="primary" onclick="addToCart(350,'q1')">Add to Cart</button>
+</div>
 
-    <!-- 2 -->
-    <div class="product-card">
-        <img src="images/upvc-alu.jpg" alt="UPVC & Domal ALU">
-        <div class="product-content">
-            <h3>UPVC & Domal ALU</h3>
-            <p>High-quality UPVC and Aluminium frames with durability and modern finish.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
-
-    <!-- 3 -->
-    <div class="product-card">
-        <img src="images/casement-window.jpg" alt="Casement Windows">
-        <div class="product-content">
-            <h3>Casement Windows</h3>
-            <p>Side-hinged windows for better ventilation and strong locking system.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="product-card">
-        <img src="images/tilt-turn.jpg" alt="Tilt & Turn">
-        <div class="product-content">
-            <h3>Tilt & Turn Windows</h3>
-            <p>Dual-function windows that tilt for ventilation and turn for full opening.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="product-card">
-        <img src="images/sliding-window.jpg" alt="Sliding Window">
-        <div class="product-content">
-            <h3>Sliding Windows</h3>
-            <p>Smooth sliding system with space-saving and elegant design.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="product-card">
-        <img src="images/casement-door.jpg" alt="Casement Door">
-        <div class="product-content">
-            <h3>Casement Doors</h3>
-            <p>Strong and stylish hinged doors with secure locking features.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
-
-    <!-- 7 -->
-    <div class="product-card">
-        <img src="images/sliding-door.jpg" alt="Sliding Door">
-        <div class="product-content">
-            <h3>Sliding Doors</h3>
-            <p>Modern sliding doors with large glass panels for balcony and garden views.</p>
-            <a href="#" class="btn">Enquire Now</a>
-        </div>
-    </div>
+<div class="card">
+<img src="https://via.placeholder.com/300x200" alt="Casement Window">
+<h3>Casement Window</h3>
+<p>₹400/sqft</p>
+Qty <input type="number" value="1" min="1" id="q2">
+<button class="primary" onclick="addToCart(400,'q2')">Add to Cart</button>
+</div>
 
 </div>
 
-<!-- Call to Action -->
-<div class="cta">
-    <h2>Book Free Site Visit Today!</h2>
-    <p>📞 96600 11137 / 99821 00135</p>
-    <p>📍 Ramner Road, Kishangarh, Ajmer – 305801</p>
-    <a href="https://wa.me/919660011137" class="whatsapp">Chat on WhatsApp</a>
+<button class="secondary" onclick="checkout()">Checkout</button>
+
+</section>
+
+<section class="section" id="contact">
+<h2>Contact Us</h2>
+<p>Call or WhatsApp for quick service.</p>
+</section>
+
+<footer>
+© 2026 BALAJI UPVC WINDOW AND DOORS
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="orderModal">
+<div class="modal-box">
+<h3>Customer Details</h3>
+<input type="text" placeholder="Your Name"><br><br>
+<input type="tel" placeholder="Mobile Number"><br><br>
+<input type="text" placeholder="City"><br><br>
+<button class="primary">Submit</button>
+<button onclick="closeModal()">Close</button>
 </div>
+</div>
+
+<a href="tel:9588217772" class="floating-call">📞</a>
+<a href="https://wa.me/919588217772" class="whatsapp" target="_blank">💬</a>
+
+<script>
+
+/* Loader */
+window.onload=function(){
+document.getElementById("loader").style.display="none";
+}
+
+/* Dark Mode */
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+/* Hero Slider */
+let images=[
+"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+"https://images.unsplash.com/photo-1507089947368-19c1da9775ae"
+];
+let i=0;
+setInterval(()=>{
+document.querySelector(".hero").style.backgroundImage="url('"+images[i]+"')";
+i=(i+1)%images.length;
+},3000);
+
+/* Cart System */
+let totalItems=0;
+let totalPrice=0;
+
+function addToCart(price,id){
+let qty=document.getElementById(id).value;
+totalItems+=parseInt(qty);
+totalPrice+=price*qty;
+document.getElementById("cartCount").innerText="Cart: "+totalItems;
+alert("Added to cart!");
+}
+
+function checkout(){
+alert("Total Price: ₹"+totalPrice+" (Demo Payment)");
+}
+
+/* Modal */
+function openModal(){
+document.getElementById("orderModal").style.display="flex";
+}
+function closeModal(){
+document.getElementById("orderModal").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
