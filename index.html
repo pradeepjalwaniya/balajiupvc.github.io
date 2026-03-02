@@ -3,271 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Balaji UPVC Windows and Doors - Premium Quality Sliding & Casement Windows at Affordable Prices.">
+<meta name="keywords" content="UPVC windows, UPVC doors, Sliding windows, Casement windows, Kishangarh UPVC">
+<meta name="author" content="Balaji UPVC">
+
 <title>BALAJI UPVC WINDOW AND DOORS</title>
 
 <style>
 
-/* ===== GLOBAL STYLES ===== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#f4f9ff;transition:.4s;}
+.dark{background:#121212;color:white;}
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#f4f9ff;
-}
-
-/* ===== HEADER ===== */
 header{
-    position:sticky;
-    top:0;
-    background:linear-gradient(90deg,#0a3d62,#0077b6);
-    color:white;
-    padding:15px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:1000;
-}
-
-.logo{
-    font-size:20px;
-    font-weight:bold;
-}
-
-nav{
-    display:flex;
-    gap:20px;
+position:sticky;top:0;
+background:linear-gradient(90deg,#0a3d62,#0077b6);
+color:white;padding:15px 30px;
+display:flex;justify-content:space-between;align-items:center;
+z-index:1000;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    position:relative;
+color:white;text-decoration:none;margin:0 10px;
 }
 
-nav a::after{
-    content:'';
-    position:absolute;
-    width:0;
-    height:2px;
-    background:#00d4ff;
-    left:0;
-    bottom:-5px;
-    transition:0.3s;
-}
+.toggle{background:white;border:none;padding:5px 10px;border-radius:20px;cursor:pointer;}
 
-nav a:hover::after{
-    width:100%;
-}
-
-/* ===== HERO ===== */
 .hero{
-    height:90vh;
-    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    animation:fadeIn 2s ease;
+height:90vh;
+display:flex;justify-content:center;align-items:center;
+text-align:center;color:white;
+background-size:cover;background-position:center;
+transition:1s;
 }
 
-.hero h1{
-    font-size:40px;
-    margin-bottom:15px;
+.hero-box{
+background:rgba(0,0,0,.5);
+padding:30px;border-radius:15px;
 }
 
-.hero p{
-    font-size:18px;
-    margin-bottom:25px;
-}
-
-.btn{
-    padding:12px 25px;
-    margin:5px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:15px;
-    transition:0.3s;
-}
-
-.btn-primary{
-    background:#00d4ff;
-    color:#003049;
-}
-
-.btn-primary:hover{
-    transform:scale(1.1);
-}
-
-.btn-secondary{
-    background:white;
-    color:#0077b6;
-}
-
-.btn-secondary:hover{
-    transform:scale(1.1);
-}
-
-/* ===== PRODUCTS ===== */
-.section{
-    padding:60px 40px;
-    text-align:center;
-}
-
-.section h2{
-    font-size:30px;
-    margin-bottom:40px;
-    color:#0a3d62;
-}
+.section{padding:60px 30px;text-align:center;}
 
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
-    background:white;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    padding:20px;
-    transition:0.4s;
+background:white;padding:20px;border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.card:hover{transform:translateY(-8px);}
+.card img{width:100%;border-radius:10px;}
+
+input[type=number]{width:60px;padding:5px;margin:10px;}
+
+button{
+padding:10px 20px;border:none;border-radius:20px;
+cursor:pointer;margin:5px;
 }
 
-.card img{
-    width:100%;
-    border-radius:10px;
+.primary{background:#0077b6;color:white;}
+.secondary{background:#00d4ff;color:#003049;}
+
+.cart{
+position:fixed;top:20px;right:20px;
+background:#ff9800;color:white;
+padding:8px 15px;border-radius:20px;
 }
 
-.badge{
-    background:red;
-    color:white;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
+.modal{
+display:none;position:fixed;top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.6);
+justify-content:center;align-items:center;
 }
 
-.order-btn{
-    background:#0077b6;
-    color:white;
-    padding:10px 20px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-    margin-top:10px;
+.modal-box{
+background:white;padding:25px;border-radius:15px;
+width:90%;max-width:400px;
 }
 
-.order-btn:hover{
-    background:#00b4d8;
+.floating-call,.whatsapp{
+position:fixed;right:20px;width:60px;height:60px;
+display:flex;justify-content:center;align-items:center;
+border-radius:50%;color:white;text-decoration:none;
 }
+.floating-call{bottom:20px;background:#0077b6;}
+.whatsapp{bottom:90px;background:#25D366;}
 
-/* ===== WHY CHOOSE US ===== */
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.feature-box{
-    background:linear-gradient(135deg,#e0f7ff,#ffffff);
-    padding:20px;
-    border-radius:15px;
-    transition:0.3s;
-}
-
-.feature-box:hover{
-    transform:scale(1.05);
-}
-
-/* ===== TESTIMONIALS ===== */
-.testimonials{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.review{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.review:hover{
-    transform:translateY(-5px);
-}
-
-/* ===== CTA ===== */
-.cta{
-    background:linear-gradient(90deg,#0077b6,#00d4ff);
-    color:white;
-    padding:50px 20px;
-    text-align:center;
-}
-
-/* ===== FOOTER ===== */
 footer{
-    background:#0a3d62;
-    color:white;
-    text-align:center;
-    padding:20px;
+background:#0a3d62;color:white;text-align:center;
+padding:20px;margin-top:40px;
 }
 
-/* ===== FLOATING CALL BUTTON ===== */
-.floating-call{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px;
-    height:60px;
-    background:#0077b6;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    font-size:26px;
-    text-decoration:none;
-    box-shadow:0 6px 15px rgba(0,0,0,0.3);
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(0,119,182,0.7);}
-    70%{box-shadow:0 0 0 15px rgba(0,119,182,0);}
-    100%{box-shadow:0 0 0 0 rgba(0,119,182,0);}
-}
-
-/* ===== ANIMATION ===== */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
+.loader{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:white;display:flex;justify-content:center;align-items:center;
+z-index:2000;
 }
 
 @media(max-width:768px){
-    header{
-        flex-direction:column;
-    }
+header{flex-direction:column;}
 }
 
 </style>
@@ -275,116 +119,127 @@ footer{
 
 <body>
 
+<div class="loader" id="loader">Loading...</div>
+
 <header>
-<div class="logo">BALAJI UPVC WINDOW AND DOORS</div>
+<h3>BALAJI UPVC</h3>
 <nav>
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">About Us</a>
-<a href="#">Order Now</a>
-<a href="#">Contact</a>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+<button class="toggle" onclick="toggleDark()">🌙</button>
 </nav>
 </header>
 
-<section class="hero">
-<h1>Premium UPVC Windows & Doors for Modern Homes</h1>
+<div class="cart" id="cartCount">Cart: 0</div>
+
+<section class="hero" id="home">
+<div class="hero-box">
+<h1>Premium UPVC Windows & Doors</h1>
 <p>Strong | Stylish | Durable | Energy Efficient</p>
-<button class="btn btn-primary">Get Free Consultation</button>
-<button class="btn btn-secondary">Order Now</button>
+<button class="primary" onclick="openModal()">Order Now</button>
+</div>
 </section>
 
-<section class="section">
-<h2>Our Premium Collection</h2>
+<section class="section" id="products">
+<h2>Our Products</h2>
+
 <div class="products">
 
 <div class="card">
-<img src="https://via.placeholder.com/300x200">
-<h3>Sliding Windows</h3>
-<p>Starting ₹350/sqft</p>
-<span class="badge">10% OFF</span>
-<p>Modern smooth sliding windows.</p>
-<button class="order-btn" onclick="order()">Order Now</button>
+<img src="https://via.placeholder.com/300x200" alt="Sliding Window">
+<h3>Sliding Window</h3>
+<p>₹350/sqft</p>
+Qty <input type="number" value="1" min="1" id="q1">
+<button class="primary" onclick="addToCart(350,'q1')">Add to Cart</button>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/300x200">
-<h3>Casement Windows</h3>
-<p>Starting ₹400/sqft</p>
-<span class="badge">12% OFF</span>
-<p>Stylish openable windows.</p>
-<button class="order-btn" onclick="order()">Order Now</button>
+<img src="https://via.placeholder.com/300x200" alt="Casement Window">
+<h3>Casement Window</h3>
+<p>₹400/sqft</p>
+Qty <input type="number" value="1" min="1" id="q2">
+<button class="primary" onclick="addToCart(400,'q2')">Add to Cart</button>
 </div>
 
 </div>
+
+<button class="secondary" onclick="checkout()">Checkout</button>
+
 </section>
 
-<section class="section">
-<h2>Why Choose Us</h2>
-<div class="features">
-<div class="feature-box">High Quality Material</div>
-<div class="feature-box">Soundproof & Energy Efficient</div>
-<div class="feature-box">Custom Size Available</div>
-<div class="feature-box">Affordable Pricing</div>
-<div class="feature-box">Fast Installation</div>
-<div class="feature-box">Warranty Support</div>
-</div>
-</section>
-
-<section class="section">
-<h2>Customer Reviews</h2>
-<div class="testimonials">
-<div class="review">⭐⭐⭐⭐⭐ Excellent service!</div>
-<div class="review">⭐⭐⭐⭐⭐ Great quality windows.</div>
-<div class="review">⭐⭐⭐⭐⭐ Highly recommended.</div>
-</div>
-</section>
-
-<section class="cta">
-<h2>Upgrade Your Home with Premium UPVC Solutions Today!</h2>
-<button class="btn btn-secondary">Contact Now</button>
+<section class="section" id="contact">
+<h2>Contact Us</h2>
+<p>Call or WhatsApp for quick service.</p>
 </section>
 
 <footer>
-© 2026 BALAJI UPVC WINDOW AND DOORS | balajiupvc.github.io
+© 2026 BALAJI UPVC WINDOW AND DOORS
 </footer>
+
+<!-- Modal -->
+<div class="modal" id="orderModal">
+<div class="modal-box">
+<h3>Customer Details</h3>
+<input type="text" placeholder="Your Name"><br><br>
+<input type="tel" placeholder="Mobile Number"><br><br>
+<input type="text" placeholder="City"><br><br>
+<button class="primary">Submit</button>
+<button onclick="closeModal()">Close</button>
+</div>
+</div>
 
 <a href="tel:9588217772" class="floating-call">📞</a>
+<a href="https://wa.me/919588217772" class="whatsapp" target="_blank">💬</a>
 
 <script>
-function order(){
-window.open("https://forms.gle/your-google-form-link","_blank");
+
+/* Loader */
+window.onload=function(){
+document.getElementById("loader").style.display="none";
 }
+
+/* Dark Mode */
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+/* Hero Slider */
+let images=[
+"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+"https://images.unsplash.com/photo-1507089947368-19c1da9775ae"
+];
+let i=0;
+setInterval(()=>{
+document.querySelector(".hero").style.backgroundImage="url('"+images[i]+"')";
+i=(i+1)%images.length;
+},3000);
+
+/* Cart System */
+let totalItems=0;
+let totalPrice=0;
+
+function addToCart(price,id){
+let qty=document.getElementById(id).value;
+totalItems+=parseInt(qty);
+totalPrice+=price*qty;
+document.getElementById("cartCount").innerText="Cart: "+totalItems;
+alert("Added to cart!");
+}
+
+function checkout(){
+alert("Total Price: ₹"+totalPrice+" (Demo Payment)");
+}
+
+/* Modal */
+function openModal(){
+document.getElementById("orderModal").style.display="flex";
+}
+function closeModal(){
+document.getElementById("orderModal").style.display="none";
+}
+
 </script>
-</footer>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919588217772?text=Hello%20I%20want%20to%20order%20UPVC%20windows%20and%20doors"
-   class="whatsapp-float"
-   target="_blank">
-   💬
-</a>
-
-<style>
-.whatsapp-float{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    font-size:28px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-    z-index:1000;
-}
-</style>
-
-</body>
-</html>
 </body>
 </html>
